@@ -48,6 +48,7 @@ use JMS\Serializer\Annotation\Since;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Inline;
 use JMS\Serializer\Annotation\ReadOnly;
+use JMS\Serializer\Annotation\Nullable;
 use JMS\Serializer\Metadata\ClassMetadata;
 use JMS\Serializer\Metadata\PropertyMetadata;
 use JMS\Serializer\Metadata\VirtualPropertyMetadata;
@@ -208,6 +209,8 @@ class AnnotationDriver implements DriverInterface
                         $propertyMetadata->xmlAttributeMap = true;
                     } elseif ($annot instanceof MaxDepth) {
                         $propertyMetadata->maxDepth = $annot->depth;
+                    } elseif ($annot instanceof Nullable) {
+                        $propertyMetadata->nullable = true;
                     }
                 }
 

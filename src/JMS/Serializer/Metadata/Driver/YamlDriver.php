@@ -185,6 +185,11 @@ class YamlDriver extends AbstractFileDriver
                     if (isset($pConfig['max_depth'])) {
                         $pMetadata->maxDepth = (int) $pConfig['max_depth'];
                     }
+
+                    if (isset($pConfig['nullable'])) {
+                        $pMetadata->nullable = (Boolean) $pConfig['nullable'];
+                    }
+
                 }
                 if ((ExclusionPolicy::NONE === $exclusionPolicy && ! $isExclude)
                         || (ExclusionPolicy::ALL === $exclusionPolicy && $isExpose)) {
