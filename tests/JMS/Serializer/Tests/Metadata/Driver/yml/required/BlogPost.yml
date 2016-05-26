@@ -1,0 +1,5 @@
+JMS\Serializer\Tests\Fixtures\BlogPost:
+    xml_root_name: blog-post
+    properties:
+        comments:
+            required: true

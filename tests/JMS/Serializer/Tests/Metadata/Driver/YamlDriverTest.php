@@ -83,6 +83,17 @@ class YamlDriverTest extends BaseDriverTest
         $this->assertEquals($p, $m->propertyMetadata['title']);
     }
 
+    public function testBlogPostRequired()
+    {
+        $m = $this->getDriverForSubDir('required')->loadMetadataForClass(new \ReflectionClass('JMS\Serializer\Tests\Fixtures\BlogPost'));
+
+        $this->assertArrayHasKey('comments', $m->propertyMetadata);
+
+        $p = new PropertyMetadata($m->name, 'comments');
+        $p->required = true;
+        $this->assertEquals($p, $m->propertyMetadata['comments']);
+    }
+
     private function getDriverForSubDir($subDir = null)
     {
         return new YamlDriver(new FileLocator(array(
